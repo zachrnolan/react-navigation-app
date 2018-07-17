@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 
 export default class Detail extends Component {
+  componentDidMount() {
+    console.log('Detail ComponentDidMount')
+  }
+  componentWillUnmount() {
+    console.log('Detail componentWillUnmount')
+  }
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
