@@ -6,12 +6,14 @@
  * @flow
  */
 
-import React, {Component} from 'react'
-import {Platform, StyleSheet, Text, View} from 'react-native'
+import React, { Component } from 'react'
+import { Platform, StyleSheet, Text, View } from 'react-native'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
+import { Provider } from 'react-redux'
+import store from './redux/store'
 import Home from './screens/Home'
 import Profile from './screens/Profile'
-import Detail from './screens/Detail'
+import Detail from './screens/detail/Detail'
 
 const HomeStack = createStackNavigator({
   Home: {
@@ -43,12 +45,15 @@ const ProfileStack = createStackNavigator({
   },
 })
 
-export default createBottomTabNavigator(
-  {
-    Home: { screen: HomeStack },
-    Profile: { screen: ProfileStack },
-  },
-  {
-    // tabBarPosition: 'bottom',
-  }
+const TabNavigator = createBottomTabNavigator({
+  Home: { screen: HomeStack },
+  Profile: { screen: ProfileStack },
+})
+
+const App = () => (
+  <Provider store={store}>
+    <TabNavigator />
+  </Provider>
 )
+
+export default App
