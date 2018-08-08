@@ -14,13 +14,33 @@ import Profile from './screens/Profile'
 import Detail from './screens/Detail'
 
 const HomeStack = createStackNavigator({
-  Home: { screen: Home },
-  Detail: { screen: Detail },
+  Home: {
+    screen: Home,
+    navigationOptions: () => ({
+      title: 'Home'
+    })
+  },
+  Detail: {
+    screen: Detail,
+    navigationOptions: ({ navigation }) => ({
+      title: `${navigation.state.params.user.username}'s Detail`
+    })
+  },
 })
 
 const ProfileStack = createStackNavigator({
-  Profile: { screen: Profile },
-  Detail: { screen: Detail },
+  Profile: {
+    screen: Profile,
+    navigationOptions: () => ({
+      title: 'Profile'
+    })
+  },
+  Detail: {
+    screen: Detail,
+    navigationOptions: ({ navigation }) => ({
+      title: `${navigation.state.params.user.username}'s Detail`
+    })
+  },
 })
 
 export default createBottomTabNavigator(

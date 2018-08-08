@@ -17,7 +17,7 @@ export default class Home extends Component {
           <Text>Go to Profile</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Detail')}>
+          onPress={() => this.props.navigation.navigate('Detail', { user: { username: 'Mindy' } })}>
           <Text>Go to Detail</Text>
         </TouchableOpacity>
       </View>
