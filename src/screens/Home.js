@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
+const uuid = require('uuid-js')
 
 export default class Home extends Component {
   componentDidMount() {
@@ -17,7 +18,7 @@ export default class Home extends Component {
           <Text>Go to Profile</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Detail', { user: { username: 'Mindy' } })}>
+          onPress={() => this.props.navigation.navigate('Detail', { user: { username: 'Mindy' }, uuid: uuid.create(4).toString() })}>
           <Text>Go to Detail</Text>
         </TouchableOpacity>
       </View>
