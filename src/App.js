@@ -10,6 +10,7 @@ import React, { Component } from 'react'
 import { Platform, StyleSheet, Text, View } from 'react-native'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
 import { Provider } from 'react-redux'
+import NavigationService from './NavigationService'
 import store from './redux/store'
 import Home from './screens/Home'
 import Profile from './screens/Profile'
@@ -52,7 +53,11 @@ const TabNavigator = createBottomTabNavigator({
 
 const App = () => (
   <Provider store={store}>
-    <TabNavigator />
+    <TabNavigator
+      ref={navigatorRef => {
+        NavigationService.setTopLevelNavigator(navigatorRef)
+      }}
+    />
   </Provider>
 )
 
