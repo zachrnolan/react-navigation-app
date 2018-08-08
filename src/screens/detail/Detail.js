@@ -9,6 +9,9 @@ class Detail extends Component {
     const { navigation } = this.props
     this.props.dispatch(setTitle(navigation.state.params.user.username, navigation.state.params.uuid))
   }
+  componentWillReceiveProps({ title }) {
+    console.log('Detail ComponentWillReceiveProps', title)
+  }
   componentWillUnmount() {
     console.log('Detail componentWillUnmount')
   }
